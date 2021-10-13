@@ -1,5 +1,4 @@
 <h1>Store</h1>
-<hr>
 
 ### Libraries
 
