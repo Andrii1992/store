@@ -1,6 +1,6 @@
 <?php
 
-define('BASE_DIR', 'D:\\xampp\\htdocs\\php_lessons\\');
+define('BASE_DIR', 'D:\\xampp\\htdocs\\php_store\\');
 
 // MysqliDb
 
