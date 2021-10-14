@@ -22,17 +22,17 @@ class Auth
                 $err_message = 'This email is already taken';
                 return false;
             }
-
-            $password_hash = password_hash($password, PASS_HASH_ALGO);
-            $db->insert('users', [
-                'username' => $username,
-                'email' => $email,
-                'password_hash' => $password_hash,
-                'activated' => 1
-            ]);
-
-            return true;
         }
+        
+        $password_hash = password_hash($password, PASS_HASH_ALGO);
+        $db->insert('users', [
+            'username' => $username,
+            'email' => $email,
+            'password_hash' => $password_hash,
+            'activated' => 1
+        ]);
+
+        return true;
     }
 
     public static function Login(string $usernameOrEmail, string $password, &$err_message): bool
