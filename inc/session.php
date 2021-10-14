@@ -7,7 +7,7 @@ class Session
         $token_hash = hash(TOKEN_HASH_ALG, $token);
         $db = MysqliDb::getInstance();
         $db->where('token_hash', $token_hash);
-        $db->where('expire_time', time(), '>'); // session token
+        $db->where('expire_time', time(), '>'); // session token time
         $row = $db->getOne('sessions');
 
         if ($row === null) {
