@@ -23,7 +23,7 @@ class Auth
                 return false;
             }
         }
-        
+
         $password_hash = password_hash($password, PASS_HASH_ALGO);
         $db->insert('users', [
             'username' => $username,
@@ -68,14 +68,14 @@ class Auth
         return true;
     }
 
-    public static function LoginCookie(&$id_user): bool
+    public static function LoginCookie(&$id): bool
     {
         if(!isset($_COOKIE[SESSION_COOKIE_NAME])){
             return false;
         }
 
         $session_token = $_COOKIE[SESSION_COOKIE_NAME];
-        if(!Session::ValidateSession($session_token,$id_user)){
+        if(!Session::ValidateSession($session_token,$id)){
             return false;
         }
         
