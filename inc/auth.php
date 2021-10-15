@@ -3,7 +3,7 @@
 class Auth
 {
 
-    public function Register(string $username, string $email, string $password, &$err_message): bool
+    public static function Register(string $username, string $email, string $password, &$err_message): bool
     {
         if (strlen($username) > USER_USERNAME_MAX) {
             $err_message = 'Maximum username is ' .  USER_USERNAME_MAX;
@@ -29,7 +29,8 @@ class Auth
             'username' => $username,
             'email' => $email,
             'password_hash' => $password_hash,
-            'activated' => 1
+            'activated' => 1,
+            'admin' => 0	
         ]);
 
         return true;
@@ -39,16 +40,16 @@ class Auth
     {
         $db = MysqliDb::getInstance();
         $db->where('username', $usernameOrEmail);
-        $db->where('email', $usernameOrEmail);
+        $db->orWhere('email', $usernameOrEmail);
         $row = $db->getOne('users');
 
-        if ($row !== null) {
+        if ($row === null) {
             $err_message = 'Invalid login credentials';
             return false;
         }
 
         if (!password_verify($password, $row['password_hash'])) {
-            $err_message = 'Invalid login credentials';
+            $err_message = 'Invalid password';
             return false;
         }
 
@@ -70,15 +71,15 @@ class Auth
 
     public static function LoginCookie(&$id): bool
     {
-        if(!isset($_COOKIE[SESSION_COOKIE_NAME])){
+        if (!isset($_COOKIE[SESSION_COOKIE_NAME])) {
             return false;
         }
 
         $session_token = $_COOKIE[SESSION_COOKIE_NAME];
-        if(!Session::ValidateSession($session_token,$id)){
+        if (!Session::ValidateSession($session_token, $id)) {
             return false;
         }
-        
+
         return true;
     }
 }
