@@ -13,24 +13,38 @@
 <body>
     <div>
         <nav class="px-3 navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="#">Navbar w/ text</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarText">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="/auth/register.php"  class="nav-link">Register</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="/auth/login.php"  class="nav-link">Login</a>
-                    </li>
-                </ul>
                 <span class="navbar-text">
                     Navbar text with an inline element
                 </span>
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <?php
+
+                    if (Me::IsLoggedIn()): ?>
+                        <li class="nav-item">
+                            <a href="/orders" class="nav-link">My orders</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/logout.php" class="nav-link">Logout</a>
+                        </li>
+                    <?php else : ?>
+                        <li class="nav-item">
+                            <a href="/auth/register.php" class="nav-link">Register</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/auth/login.php" class="nav-link">Login</a>
+                        </li>
+                    <?php endif; ?>
+
+
+
+                </ul>
+
             </div>
         </nav>

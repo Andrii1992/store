@@ -6,7 +6,6 @@ $email  = POST('email', true);
 $password  = POST('password', true, false);
 $confirm_password  = POST('confirm_password', true, false);
 $accept_check = POST('accept_check', true);
-$err_message = null;
 
 if ($password !== $confirm_password) {
     http_response_code(400);

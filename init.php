@@ -5,8 +5,13 @@ require_once BASE_DIR . "/lib/MysqliDb.php";
 require_once BASE_DIR . "/inc/auth.php";
 require_once BASE_DIR . "/inc/session.php";
 require_once BASE_DIR . "/inc/user.php";
+require_once BASE_DIR . "/inc/me.php";
 
 $db = new MysqliDb(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+
+if(Auth::LoginCookie($user_id)){
+    Me::SetUser(new User($user_id));
+}
 
 function POST(string $key, bool $require = false, bool $secure = true)
 {

@@ -64,19 +64,19 @@ class Auth
         }
 
         $expire_time = time() + SESSION_EXPIRE_DAYS * 24 * 60 * 60;
-        setcookie(SESSION_COOKIE_NAME, $expire_time, '/');
+        setcookie(SESSION_COOKIE_NAME, $session_token, $expire_time, '/');
 
         return true;
     }
 
-    public static function LoginCookie(&$id): bool
+    public static function LoginCookie(&$user_id): bool
     {
         if (!isset($_COOKIE[SESSION_COOKIE_NAME])) {
             return false;
         }
 
         $session_token = $_COOKIE[SESSION_COOKIE_NAME];
-        if (!Session::ValidateSession($session_token, $id)) {
+        if (!Session::ValidateSession($session_token, $user_id)) {
             return false;
         }
 
