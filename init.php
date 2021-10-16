@@ -6,6 +6,8 @@ require_once BASE_DIR . "/inc/auth.php";
 require_once BASE_DIR . "/inc/session.php";
 require_once BASE_DIR . "/inc/user.php";
 require_once BASE_DIR . "/inc/me.php";
+require_once BASE_DIR . "/inc/product.php";
+require_once BASE_DIR . "/inc/store.php";
 
 $db = new MysqliDb(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 
