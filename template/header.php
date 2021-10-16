@@ -31,7 +31,7 @@
                             <a href="/orders" class="nav-link">My orders</a>
                         </li>
                         <li class="nav-item">
-                            <a href="/logout.php" class="nav-link">Logout</a>
+                            <a href="user/logout.php" class="nav-link">Logout</a>
                         </li>
                     <?php else : ?>
                         <li class="nav-item">

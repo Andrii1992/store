@@ -48,7 +48,7 @@ class Session
     public static function DestroySessionsByUser(int $user_id): bool
     {
         $db = MysqliDb::getInstance();
-        $db->where('token_hash', $user_id);
+        $db->where('user_id', $user_id);
         $db->delete('sessions');
 
         return true;
