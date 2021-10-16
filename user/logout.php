@@ -8,6 +8,5 @@ if(!Me::IsLoggedIn()){
 
 Session::DestroySessionsByUser(Me::GetUser()->GetData()['id']);
 
-var_dump(Me::GetUser()->GetData()['id']);
 http_response_code(302);
 header('Location: /auth/login.php');
