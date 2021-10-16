@@ -19,7 +19,6 @@ try {
         <p class="text-justify"><?= $product->GetData()['description']; ?></p>
         <button>By</button>
     </div>
-
 </div>
 
 <?php
