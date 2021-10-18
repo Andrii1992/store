@@ -20,6 +20,8 @@ define('USER_USERNAME_MAX', 255);
 // Session
 define('TOKEN_HASH_ALG', 'sha3-256');
 
-
+// PAYPAL
+define('PAYPAL_CLIENT_ID', '');
+define('PAYPAL_SECRETE', '');
 
 require_once BASE_DIR . "/init.php";

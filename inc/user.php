@@ -28,7 +28,8 @@ class User
         return $this->_user_data;
     }
 
-    public function ChangeEmail($email, &$err_message) : bool {
+    public function ChangeEmail($email, &$err_message): bool
+    {
         $db = MysqliDb::getInstance();
         $db->where('email', $email);
         $row = $db->getOne('users');
@@ -48,8 +49,9 @@ class User
         return true;
     }
 
-    public function ChangePassword(string $current_password, string $password, &$err_message) : bool {
-        if(!password_verify($current_password, $this->_user_data['password_hash'])){
+    public function ChangePassword(string $current_password, string $password, &$err_message): bool
+    {
+        if (!password_verify($current_password, $this->_user_data['password_hash'])) {
             $err_message = 'Invalid current password';
             return false;
         }

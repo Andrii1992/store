@@ -13,11 +13,30 @@ try {
 
 ?>
 <div class="row my-5 product">
-    <img class="col-lg-5 col-8 mx-auto img-fluid" src="<?= $product->GetData()['img_url']; ?>" title="<?= $product->GetData()['title']; ?>" alt="<?= $product->GetData()['title']; ?>">
+    <div class="col-lg-5 col-12">
+        <img class="img-fluid" src="<?= $product->GetData()['img_url']; ?>" title="<?= $product->GetData()['title']; ?>" alt="<?= $product->GetData()['title']; ?>">
+    </div>
     <div class="col-lg-7 col-12 px-3 mt-lg-0 mt-3">
         <h1 class="product-title"><?= $product->GetData()['title']; ?></h1>
         <p class="text-justify"><?= $product->GetData()['description']; ?></p>
-        <button>By</button>
+        <p class="text-right"><span class="badge badge-light px-2 py-1">Quantity: <span class="badge badge-dark pb-1"><?= $product->GetData()['quantity']; ?></span></span></p>
+        <h3 class="text-right"><span class="badge badge-light px-2 pb-1 product-price">€<?= $product->GetData()['price']; ?></span></h3>
+        <?php
+        if (Me::IsLoggedIn()) :
+        ?>
+            <form method="POST" action="/api/cart/addItem.php">
+                <input type="hidden" name="product_id" value="<?=$product->GetData()['id']; ?>">
+                <button type="submit" class="px-4 py-2 btn btn-secondary float-right">Add to cart</button>
+            </form>
+        <?php
+        else :
+        ?>
+            <a class="px-4 py-2 btn btn-secondary float-right" href="/auth/login.php">Login</a>
+        <?php
+        endif;
+        ?>
+
+
     </div>
 </div>
 

@@ -30,7 +30,7 @@ class Auth
             'email' => $email,
             'password_hash' => $password_hash,
             'activated' => 1,
-            'admin' => 0	
+            'admin' => 0
         ]);
 
         return true;
