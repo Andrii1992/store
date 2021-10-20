@@ -23,5 +23,9 @@ define('TOKEN_HASH_ALG', 'sha3-256');
 // PAYPAL
 define('PAYPAL_CLIENT_ID', '');
 define('PAYPAL_SECRETE', '');
+define('PAYPAL_MODE', 'sandbox');
+
+define('PAYPAL_REDIRECT_SUCCESS', 'http://php.lessons/paypal/process.php');
+define('PAYPAL_REDIRECT_CANCEL', 'http://php.lessons/cancel.php');
 
 require_once BASE_DIR . "/init.php";
