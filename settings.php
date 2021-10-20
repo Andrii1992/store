@@ -21,5 +21,4 @@ define('USER_USERNAME_MAX', 255);
 define('TOKEN_HASH_ALG', 'sha3-256');
 
 
-
 require_once BASE_DIR . "/init.php";
