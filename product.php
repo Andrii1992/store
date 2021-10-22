@@ -31,7 +31,7 @@ try {
         <?php
         else :
         ?>
-            <a class="px-4 py-2 btn btn-secondary float-right" href="/auth/login.php">Login</a>
+            <a class="px-4 py-2 btn btn-secondary float-right" href="<?php echo PREFIX_URL; ?>auth/login.php">Login</a>
         <?php
         endif;
         ?>
