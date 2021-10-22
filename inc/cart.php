@@ -19,7 +19,6 @@ class Cart
         } catch (Exception $ex) {
             return false;
         }
-        var_dump($product_id);
         $user_id = Me::GetUser()->GetData()['id'];
         $db = MysqliDb::getInstance();
         $db->insert('cart', [
