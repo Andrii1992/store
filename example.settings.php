@@ -28,6 +28,7 @@ define('PAYPAL_MODE', 'sandbox');
 define('PAYPAL_WEBHOOK_ID', '');
 
 define('PAYPAL_REDIRECT_SUCCESS', 'http://php.store/paypal/process.php');
-define('PAYPAL_REDIRECT_CANCEL', 'http://php.store/cancel.php');
+define('PAYPAL_REDIRECT_CANCEL', 'http://php.store/paypal/cancel.php');
+define('PAYPAL_REDIRECT_WEBHOOK', 'http://php.store/paypal/webhook.php');
 
 require_once BASE_DIR . 'init.php';

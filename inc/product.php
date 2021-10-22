@@ -26,4 +26,13 @@ class Product
     {
         return $this->_product_data;
     }
+
+    public function DecQuantity(): bool
+    {
+        $db = MysqliDb::getInstance();
+        $db->where('id', $this->_product_id);
+        return $db->update('products',[
+            'quantity' => $db->dec()
+        ]);
+    }
 }

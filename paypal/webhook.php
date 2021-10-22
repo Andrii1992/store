@@ -49,6 +49,13 @@ if($status !== "SUCCESS"){
 $request = json_decode($requestBody, true);
 $resource = $request['resource'];
 $custom = $resource['custom'];
+
 $oredr_id = (int) $custom;
+
+$order = Order::GetData($oredr_id);
+foreach($order as $product_id){
+    $product = new Product($product_id);
+    $product->DecQuantity();
+}
 
 Order::Update($oredr_id, true, false);
