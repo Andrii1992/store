@@ -10,9 +10,9 @@ use \PayPal\Api\WebhookEvent;
 
 // Payment sale completed - pay ok
 
-function get_header(string $name) : string {
+function get_header(string $name) {
   $name = str_replace("-","_", $name);
-  return  strval($_SERVER["HTTP_$name"]);
+  return $_SERVER["HTTP_$name"];
 }
 
 $apiContext = new ApiContext(
