@@ -36,7 +36,16 @@ $execution->setPayerId($payerId);
 try {
     // Execute payment
     $result = $payment->execute($execution, $apiContext);
-    exit('Order in progress ...');
+?>
+
+    <script>
+        const pre = "<?=PREFIX_URL; ?>";
+        window.setTimeout(function() {
+            window.location.href = pre;
+        }, 5000);
+    </script>
+<?php
+    exit('<h1>Order in progress ...</h1>');
 } catch (PayPal\Exception\PayPalConnectionException $ex) {
     echo $ex->getCode();
     echo $ex->getData();
