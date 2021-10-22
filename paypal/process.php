@@ -45,6 +45,3 @@ try {
 
     die($ex);
 }
-
-http_response_code(302);
-header('location: ' . PREFIX_URL . 'paypal/webhook.php');
