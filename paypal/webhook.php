@@ -12,7 +12,7 @@ use \PayPal\Api\WebhookEvent;
 
 function get_header(string $name) : string {
   $name = str_replace("-","_", $name);
-  if(is_null($name)){
+  if(is_null($_SERVER["HTTP_$name"])){
       return "";
   }
   return $_SERVER["HTTP_$name"];
