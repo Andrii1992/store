@@ -38,6 +38,7 @@ $redirectUrls->setReturnUrl(PAYPAL_REDIRECT_SUCCESS)
     ->setCancelUrl(PAYPAL_REDIRECT_CANCEL);
 
 $total = 0.0;
+$order = [];
 
 // Set item list
 $itemList = new ItemList();
@@ -53,6 +54,7 @@ foreach(Cart::GetProducts() as $product){
     $itemList->addItem($item);
 
     $total +=$productData['price'];
+    $order[] = $productData['id'];
 }
 
 if($total === 0.0){
@@ -65,14 +67,20 @@ $amount = new Amount();
 $amount->setCurrency("PLN")
     ->setTotal($total);
 
+$order_id = Order::Create(Me::GetUser()->GetData()['id'], $order);
 
+if($order_id < 1 ){
+    http_response_code(500);
+    exit('Error: Failed to create order');
+}
 
+Cart::ClearCart();
 
 // Set transaction object
 $transaction = new Transaction();
 $transaction->setAmount($amount)
-    ->setDescription('Stor order #')
-    ->setCustom()
+    ->setDescription("Stor order #$order_id")
+    ->setCustom("$order_id")
     ->setItemList($itemList);
 
 // Create the full payment object
