@@ -2,7 +2,7 @@
 require_once "../settings.php";
 ?>
 
-<?php require_once BASE_DIR . '/template/header.php'; ?>
+<?php require_once BASE_DIR . 'template/header.php'; ?>
 
 <div class="container">
   <form class="row my-5" method="POST" action="/api/auth/login.php">
@@ -25,4 +25,4 @@ require_once "../settings.php";
 </div>
 
 
-<?php require_once BASE_DIR . '/template/footer.php'; ?>
+<?php require_once BASE_DIR . 'template/footer.php'; ?>

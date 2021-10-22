@@ -1,6 +1,6 @@
 <?php
 require_once "settings.php";
-require_once BASE_DIR . '/template/header.php';
+require_once BASE_DIR . 'template/header.php';
 ?>
 <div class="row mb-5">
     <?php
@@ -23,4 +23,4 @@ require_once BASE_DIR . '/template/header.php';
 
 <?php
 
-require_once BASE_DIR . '/template/footer.php';
+require_once BASE_DIR . 'template/footer.php';

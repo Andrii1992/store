@@ -1,6 +1,6 @@
 <?php
 require_once "settings.php";
-require_once BASE_DIR . '/template/header.php';
+require_once BASE_DIR . 'template/header.php';
 
 $id = GET('id', true);
 
@@ -42,4 +42,4 @@ try {
 
 <?php
 
-require_once BASE_DIR . '/template/footer.php';
+require_once BASE_DIR . 'template/footer.php';

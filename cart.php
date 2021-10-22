@@ -1,6 +1,6 @@
 <?php
 require_once "settings.php";
-require_once BASE_DIR . '/template/header.php';
+require_once BASE_DIR . 'template/header.php';
 
 if (!Me::IsLoggedIn()) {
     http_response_code(403);
@@ -36,4 +36,4 @@ if (!Me::IsLoggedIn()) {
 
 <?php
 
-require_once BASE_DIR . '/template/footer.php';
+require_once BASE_DIR . 'template/footer.php';
