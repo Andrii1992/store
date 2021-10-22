@@ -37,25 +37,42 @@ $redirectUrls = new RedirectUrls();
 $redirectUrls->setReturnUrl(PAYPAL_REDIRECT_SUCCESS)
     ->setCancelUrl(PAYPAL_REDIRECT_CANCEL);
 
-// Set payment amount
-$amount = new Amount();
-$amount->setCurrency("PLN")
-    ->setTotal(10.50);
+$total = 0.0;
 
 // Set item list
 $itemList = new ItemList();
-$item = new Item();
-$item->setQuantity(1);
-$item->setPrice(10.50);
-$item->setCurrency('PLN');
-$item->setName('IPhone');
-$item->setDescription('Testowy IPhone');
-$itemList->addItem($item);
+
+foreach(Cart::GetProducts() as $product){
+    $productData = $product->GetData();
+    $item = new Item();
+    $item->setQuantity(1);
+    $item->setPrice($productData['price']);
+    $item->setCurrency('PLN');
+    $item->setName($productData['title']);
+    $item->setDescription($productData['short_description']);
+    $itemList->addItem($item);
+
+    $total +=$productData['price'];
+}
+
+if($total === 0.0){
+    http_response_code(401);
+    exit('Error: Cart is empty');
+}
+
+// Set payment amount
+$amount = new Amount();
+$amount->setCurrency("PLN")
+    ->setTotal($total);
+
+
+
 
 // Set transaction object
 $transaction = new Transaction();
 $transaction->setAmount($amount)
-    ->setDescription('Transakcja testowa PayPal')
+    ->setDescription('Stor order #')
+    ->setCustom()
     ->setItemList($itemList);
 
 // Create the full payment object

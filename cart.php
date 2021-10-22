@@ -12,9 +12,8 @@ if (!Me::IsLoggedIn()) {
 <div class="row mt-5">
 
     <?php
-    $products = Cart::GetProducts();
     $isEmpty = true;
-    foreach ($products as $product) : ?>
+    foreach (Cart::GetProducts() as $product) : ?>
         <div class="col-12 col-lg-4 mt-3">
             <img width="150px" src="<?php echo $product->GetData()['img_url']; ?>" alt="product image" title="<?php echo $product->GetData()['title']; ?>" class="img-fluid">
         </div>

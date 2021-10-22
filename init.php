@@ -8,6 +8,7 @@ require_once BASE_DIR . 'inc/me.php';
 require_once BASE_DIR . 'inc/product.php';
 require_once BASE_DIR . 'inc/store.php';
 require_once BASE_DIR . 'inc/cart.php';
+require_once BASE_DIR . 'inc/order.php';
 
 
 $db = new MysqliDb(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
