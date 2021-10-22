@@ -35,7 +35,7 @@ $redirectUrls->setReturnUrl(PAYPAL_REDIRECT_SUCCESS)
 
 // Set payment amount
 $amount = new Amount();
-$amount->setCurrency("PLN")
+$amount->setCurrency("EUR")
     ->setTotal(10.50);
 
 // Set item list
@@ -43,7 +43,7 @@ $itemList = new ItemList();
 $item = new Item();
 $item->setQuantity(1);
 $item->setPrice(10.50);
-$item->setCurrency('PLN');
+$item->setCurrency('EUR');
 $item->setName('IPhone');
 $item->setDescription('Testowy IPhone');
 $itemList->addItem($item);

@@ -36,12 +36,10 @@ $execution->setPayerId($payerId);
 try {
     // Execute payment
     $result = $payment->execute($execution, $apiContext);
-    var_dump($result);
 } catch (PayPal\Exception\PayPalConnectionException $ex) {
     echo $ex->getCode();
     echo $ex->getData();
     die($ex);
 } catch (Exception $ex) {
-
     die($ex);
 }

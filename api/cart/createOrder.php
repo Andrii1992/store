@@ -79,7 +79,7 @@ Cart::ClearCart();
 // Set transaction object
 $transaction = new Transaction();
 $transaction->setAmount($amount)
-    ->setDescription("Stor order #$order_id")
+    ->setDescription("Order #$order_id")
     ->setCustom("$order_id")
     ->setItemList($itemList);
 
