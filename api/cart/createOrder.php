@@ -48,7 +48,7 @@ foreach(Cart::GetProducts() as $product){
     $item = new Item();
     $item->setQuantity(1);
     $item->setPrice($productData['price']);
-    $item->setCurrency('PLN');
+    $item->setCurrency('EUR');
     $item->setName($productData['title']);
     $item->setDescription($productData['short_description']);
     $itemList->addItem($item);
@@ -64,7 +64,7 @@ if($total === 0.0){
 
 // Set payment amount
 $amount = new Amount();
-$amount->setCurrency("PLN")
+$amount->setCurrency("EUR")
     ->setTotal($total);
 
 $order_id = Order::Create(Me::GetUser()->GetData()['id'], $order);
