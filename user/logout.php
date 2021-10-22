@@ -9,4 +9,4 @@ if(!Me::IsLoggedIn()){
 Session::DestroySessionsByUser(Me::GetUser()->GetData()['id']);
 
 http_response_code(302);
-header('Location: /auth/login.php');
+header('Location: ' . PREFIX_URL . '/auth/login.php');
