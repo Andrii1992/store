@@ -9,7 +9,7 @@ if (!Me::IsLoggedIn()) {
 }
 
 ?>
-<form class="card my-5" method="POST" action="<?php echo PREFIX_URL; ?>/api/user/saveEmail.php">
+<form class="card my-5" method="POST" action="<?php echo PREFIX_URL; ?>api/user/saveEmail.php">
    <div class="form-group mx-3 mt-3">
       <label for="username">Username</label>
       <input id="username" class="form-control" value="<?= Me::GetUser()->GetData()['username'] ?>" type="text" readonly>
