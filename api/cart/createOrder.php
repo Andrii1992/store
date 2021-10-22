@@ -1,5 +1,5 @@
 <?php
-require_once "settings.php";
+require_once '../../settings.php';
 require_once BASE_DIR . 'lib/PayPal/autoload.php';
 
 if (!Me::IsLoggedIn()) {
