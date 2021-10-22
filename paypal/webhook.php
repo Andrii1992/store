@@ -5,7 +5,7 @@ require_once BASE_DIR . 'lib/PayPal/autoload.php';
 use PayPal\Auth\OAuthTokenCredential;
 use PayPal\Rest\ApiContext;
 use \PayPal\Api\VerifyWebhookSignature;
-use \PayPal\Api\WebhookEvent;
+
 // TODO:  Payment sale reversed - pay reversed
 
 // Payment sale completed - pay ok
@@ -46,9 +46,9 @@ if($status !== "SUCCESS"){
     exit;
 }
 
-$request = json_decode($requestBody, true); // true means table return
-var_dump($request);
-http_response_code(200);
-trigger_error($requestBody);
+$request = json_decode($requestBody, true);
+$resource = $request['resource'];
+$custom = $resource['custom'];
+$oredr_id = (int) $custom;
 
-// TODO: 
+Order::Update($oredr_id, true, false);
