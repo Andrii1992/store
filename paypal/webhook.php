@@ -29,12 +29,12 @@ $apiContext->setConfig([
 $requestBody = file_get_contents('php://input'); // info type event 
 
 $signatureVerification = new VerifyWebhookSignature();
-$signatureVerification->setAuthAlgo(get_header('PAYPAL-AUTH-ALGO'));
-$signatureVerification->setTransmissionId(get_header('PAYPAL-TRANSMISSION-ID'));
-$signatureVerification->setCertUrl(get_header('PAYPAL-CERT-URL'));
+$signatureVerification->setAuthAlgo(get_header("PAYPAL-AUTH-ALGO"));
+$signatureVerification->setTransmissionId(get_header("PAYPAL-TRANSMISSION-ID"));
+$signatureVerification->setCertUrl(get_header("PAYPAL-CERT-URL"));
 $signatureVerification->setWebhookId(PAYPAL_WEBHOOK_ID);
-$signatureVerification->setTransmissionSig(get_header('PAYPAL-TRANSMISSION-SIG'));
-$signatureVerification->setTransmissionTime(get_header('PAYPAL-TRANSMISSION-TIME'));
+$signatureVerification->setTransmissionSig(get_header("PAYPAL-TRANSMISSION-SIG"));
+$signatureVerification->setTransmissionTime(get_header("PAYPAL-TRANSMISSION-TIME"));
 
 $signatureVerification->setRequestBody($requestBody);
 $request = clone $signatureVerification;

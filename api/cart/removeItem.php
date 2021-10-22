@@ -9,10 +9,8 @@ if (!Me::IsLoggedIn()) {
 $product_id = POST('product_id', true);
 Cart::RemoveFromCart((int) $product_id);
 /*
-if(!Cart::AddToCart((int) $product_id)){
-    http_response_code(400);
-    exit('Error: Product not found');
-}*/
+    TODO: remove product
+*/
 
 http_response_code(302);
 header('location: ' . PREFIX_URL . 'cart.php');
