@@ -24,7 +24,7 @@ try {
         <?php
         if (Me::IsLoggedIn()) :
         ?>
-            <form method="POST" action="/api/cart/addItem.php">
+            <form method="POST" action="<?php echo PREFIX_URL; ?>api/cart/addItem.php">
                 <input type="hidden" name="product_id" value="<?=$product->GetData()['id']; ?>">
                 <button type="submit" class="px-4 py-2 btn btn-secondary float-right">Add to cart</button>
             </form>
