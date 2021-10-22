@@ -2,6 +2,7 @@
 
 // Dir 
 define('BASE_DIR', 'D:\\xampp\\htdocs\\php_store\\');
+define('PREFIX_URL', 'store/');
 
 // MysqliDb
 define('DB_HOST', 'localhost');
@@ -26,7 +27,7 @@ define('PAYPAL_SECRETE', '');
 define('PAYPAL_MODE', 'sandbox');
 define('PAYPAL_WEBHOOK_ID', '');
 
-define('PAYPAL_REDIRECT_SUCCESS', 'http://php.lessons/paypal/process.php');
-define('PAYPAL_REDIRECT_CANCEL', 'http://php.lessons/cancel.php');
+define('PAYPAL_REDIRECT_SUCCESS', 'http://php.store/paypal/process.php');
+define('PAYPAL_REDIRECT_CANCEL', 'http://php.store/cancel.php');
 
 require_once BASE_DIR . 'init.php';

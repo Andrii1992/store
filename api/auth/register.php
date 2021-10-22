@@ -23,4 +23,4 @@ if(!Auth::Register($username,$email,$password,$accept_check,$err_message)){
 }
 
 http_response_code(302);
-header('location: /auth/login.php');
+header('location: ' . PREFIX_URL . 'auth/login.php');

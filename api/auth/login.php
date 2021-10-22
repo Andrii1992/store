@@ -10,4 +10,4 @@ if(!Auth::Login($usernameOrEmail,$password, $err_message) ){
 }
 
 http_response_code(302);
-header('location: /index.php');
+header('location: ' . PREFIX_URL . 'index.php');

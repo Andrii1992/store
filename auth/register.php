@@ -5,7 +5,7 @@ require_once "../settings.php";
 <?php require_once BASE_DIR . '/template/header.php'; ?>
 
 <div class="container">
-  <form class="row my-5" method="POST" action="/api/auth/register.php">
+  <form class="row my-5" method="POST" action="<?php echo PREFIX_URL; ?>api/auth/register.php">
     <div class="col-lg-7 my-1 col-12 mx-auto">
       <div class="form-group">
         <input type="text" class="form-control" name="username" id="username" placeholder="username" maxlength="<?= USER_USERNAME_MAX ?>" required>

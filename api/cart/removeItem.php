@@ -15,4 +15,4 @@ if(!Cart::AddToCart((int) $product_id)){
 }*/
 
 http_response_code(302);
-header('location: /cart.php');
+header('location: ' . PREFIX_URL . 'cart.php');
