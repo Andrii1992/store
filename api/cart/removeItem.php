@@ -8,9 +8,6 @@ if (!Me::IsLoggedIn()) {
 
 $product_id = POST('product_id', true);
 Cart::RemoveFromCart((int) $product_id);
-/*
-    TODO: remove product
-*/
 
 http_response_code(302);
 header('location: ' . PREFIX_URL . 'cart.php');

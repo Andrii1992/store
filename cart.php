@@ -10,9 +10,11 @@ if (!Me::IsLoggedIn()) {
 ?>
 
 <div class="row mt-5">
-    
+
     <?php
-    foreach (Cart::GetProducts() as $product) : ?>
+    $products = Cart::GetProducts();
+    $isEmpty = true;
+    foreach ($products as $product) : ?>
         <div class="col-12 col-lg-4 mt-3">
             <img width="150px" src="<?php echo $product->GetData()['img_url']; ?>" alt="product image" title="<?php echo $product->GetData()['title']; ?>" class="img-fluid">
         </div>
@@ -24,13 +26,29 @@ if (!Me::IsLoggedIn()) {
                 <div class="col-12 col-lg-6">
                     <h2 class="product-price"><?php echo $product->GetData()['price']; ?></h2>
                 </div>
-                <div class="col-12 col-lg-6">
-                    <button>delete</button>
-                </div>
+                <form class="col-12 col-lg-6" method="POST" action="<?php echo PREFIX_URL; ?>api/cart/removeItem.php">
+                    <input type="text" name="product_id" value="<?= $product->GetData()['id'];  ?>" hidden>
+                    <button class="px-4 py-2 btn btn-danger float-right" type="submit">X</button>
+                </form>
             </div>
         </div>
-    <?php
+        <?php
+        if ($isEmpty) {
+            $isEmpty = false;
+        }
     endforeach;
+
+    if (!$isEmpty) :
+        ?>
+        <div class="col-12 my-5">
+            <a class="px-4 py-2 btn btn-secondary float-right" href="<?php echo PREFIX_URL; ?>api/cart/createOrder.php">Create order</a>
+        </div>
+    <?php
+    else :
+    ?>
+        <h2 class="product-title">Cart is empty</h2>
+    <?php
+    endif;
     ?>
 </div>
 

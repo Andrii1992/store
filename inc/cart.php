@@ -29,10 +29,10 @@ class Cart
         return true;
     }
 
-    public static function RemoveFromCart(int $id): bool
+    public static function RemoveFromCart(int $product_id): bool
     {
         $db = MysqliDb::getInstance();
-        $db->where('id', $id);
+        $db->where('product_id', $product_id);
         $db->where('user_id', Me::GetUser()->GetData()['id']);
         $db->delete('cart');
 
