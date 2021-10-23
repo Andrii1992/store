@@ -4,10 +4,13 @@ use Curl\Curl;
 
 class Captcha
 {
-    public static function Verify(string $url_siteverify, string $secret) : bool
+    public static function Verify(string $url_siteverify, string $secret): bool
     {
         $response = POST('g-recaptcha-response', true, false);
-
+        if (empty($response)) {
+            return false;
+        }
+        
         $curl = new Curl();
         $curl->post($url_siteverify, [
             'secret' => $secret,
