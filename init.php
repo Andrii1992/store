@@ -23,7 +23,7 @@ function POST(string $key, bool $require = false, bool $secure = true)
     if (!isset($_POST[$key])) {
         if ($require) {
             http_response_code(400);
-            exit("Error: POST parameter `$key` is required");
+            ExitEroor("Error: POST parameter `$key` is required");
         } else {
             return null;
         }
@@ -43,7 +43,7 @@ function GET(string $key, bool $require = false, bool $secure = true)
     if (!isset($_GET[$key])) {
         if ($require) {
             http_response_code(400);
-            exit("Error: GET parameter `$key` is required");
+            ExitEroor("Error: GET parameter `$key` is required");
         } else {
             return null;
         }
@@ -56,4 +56,11 @@ function GET(string $key, bool $require = false, bool $secure = true)
     }
 
     return htmlentities($return_val);
+}
+
+function ExitEroor(string $error)
+{
+    echo "<h2>$error</h2>";
+    require_once PREFIX_URL . 'template/footer.php';
+    exit();
 }
