@@ -13,6 +13,7 @@ require_once BASE_DIR . 'inc/captcha.php';
 
 
 $db = new MysqliDb(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+$err_message = '';
 
 if(Auth::LoginCookie($user_id)){
     Me::SetUser(new User($user_id));
