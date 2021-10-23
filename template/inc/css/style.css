@@ -74,10 +74,9 @@ a:active {
     cursor: pointer;
 }
 
+.product-price, 
+.error-info,
 .product-title {
     font-weight: 900;
 }
 
-.product-price {
-    font-weight: 900;
-}
