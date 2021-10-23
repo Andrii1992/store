@@ -21,6 +21,11 @@ define('USER_USERNAME_MAX', 255);
 // Session
 define('TOKEN_HASH_ALG', 'sha3-256');
 
+// Captcha
+define('CAPTCHA_URL_SITEVERIFY', 'https://www.google.com/recaptcha/api/siteverify');
+define('CAPTCHA_SITE_KEY', '');
+define('CAPTCHA_SECRET_KEY', '');
+
 // PAYPAL
 define('PAYPAL_CLIENT_ID', '');
 define('PAYPAL_SECRETE', '');

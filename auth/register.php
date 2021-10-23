@@ -4,8 +4,15 @@ require_once "../settings.php";
 
 <?php require_once BASE_DIR . '/template/header.php'; ?>
 
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<script>
+  function onSubmit(token) {
+    document.getElementById("register-form").submit();
+  }
+</script>
+
 <div class="container">
-  <form class="row my-5" method="POST" action="<?php echo PREFIX_URL; ?>api/auth/register.php">
+  <form id="register-form" class="row my-5" method="POST" action="<?php echo PREFIX_URL; ?>api/auth/register.php">
     <div class="col-lg-7 my-1 col-12 mx-auto">
       <div class="form-group">
         <input type="text" class="form-control" name="username" id="username" placeholder="username" maxlength="<?= USER_USERNAME_MAX ?>" required>
@@ -34,7 +41,7 @@ require_once "../settings.php";
     </div>
     <div class="col-lg-7 my-1 col-12 mx-auto">
       <div class="form-group">
-        <input type="submit" class="btn btn-secondary d-block ml-auto" name="submit" id="submit" value="submit">
+        <button data-callback="onSubmit" data-sitekey="<?= CAPTCHA_SITE_KEY; ?>" type="button" class="btn btn-secondary d-block ml-auto">submit</button>
       </div>
     </div>
   </form>

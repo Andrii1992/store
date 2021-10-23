@@ -9,6 +9,7 @@ require_once BASE_DIR . 'inc/product.php';
 require_once BASE_DIR . 'inc/store.php';
 require_once BASE_DIR . 'inc/cart.php';
 require_once BASE_DIR . 'inc/order.php';
+require_once BASE_DIR . 'inc/captcha.php';
 
 
 $db = new MysqliDb(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
