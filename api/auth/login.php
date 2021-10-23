@@ -11,7 +11,7 @@ $password  = POST('password', true, false);
 
 if(!Auth::Login($usernameOrEmail,$password, $err_message) ){
     http_response_code(400);
-    ExitEroor('Error: ' . $err_message, true);
+    ExitEroor("Error:  $err_message", true);
 }
 
 http_response_code(302);
