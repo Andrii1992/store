@@ -8,7 +8,7 @@ try {
     $product = new Product((int) $id);
 } catch (Exception $ex) {
     http_response_code(404);
-    exit('Error: product not found');
+    ExitEroor('Error: product not found');
 }
 
 ?>

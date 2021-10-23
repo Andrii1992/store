@@ -4,7 +4,7 @@ require_once BASE_DIR . 'template/header.php';
 
 if (!Me::IsLoggedIn()) {
     http_response_code(403);
-    exit('Error: User not logged in');
+    ExitEroor('Error: User not logged in');
 }
 
 ?>

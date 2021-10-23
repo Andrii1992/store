@@ -36,7 +36,7 @@ $execution->setPayerId($payerId);
 try {
     // Execute payment
     $result = $payment->execute($execution, $apiContext);
-    exit('Order in progress ...');
+    ExitEroor('Order in progress ...');
 } catch (PayPal\Exception\PayPalConnectionException $ex) {
     echo $ex->getCode();
     echo $ex->getData();
