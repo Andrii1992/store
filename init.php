@@ -58,8 +58,12 @@ function GET(string $key, bool $require = false, bool $secure = true)
     return htmlentities($return_val);
 }
 
-function ExitEroor(string $error)
+function ExitEroor(string $error, bool $load_header = false)
 {
+    if($load_header){
+        require_once BASE_DIR . 'template/header.php';
+    }
+    
     echo "<h2 class='my-5 text-danger error-info'>$error</h2>";
     require_once PREFIX_URL . 'template/footer.php';
     exit();

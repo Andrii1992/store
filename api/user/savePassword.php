@@ -3,7 +3,7 @@ require_once '../../settings.php';
 
 if(!Me::IsLoggedIn()){
     http_response_code(403);
-    ExitEroor('Error: User already logged out');
+    ExitEroor('Error: User already logged out', true);
 } 
 
 $current_password  = POST('current_password', true, false);
@@ -12,12 +12,12 @@ $confirm_password  = POST('confirm_password', true, false);
 
 if ($password !== $confirm_password) {
     http_response_code(400);
-    ExitEroor('Error: Password and confirm password do not match');
+    ExitEroor('Error: Password and confirm password do not match', true);
 }
 
 if(!Me::GetUser()->ChangePassword($current_password,$password, $err_message )){
     http_response_code(400);
-    ExitEroor('Error: ' . $err_message);
+    ExitEroor('Error: ' . $err_message, true);
 }
 
 http_response_code(302);

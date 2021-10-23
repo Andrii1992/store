@@ -3,14 +3,14 @@ require_once '../../settings.php';
 
 if (!Me::IsLoggedIn()) {
     http_response_code(403);
-    ExitEroor('Error: User already logged out');
+    ExitEroor('Error: User already logged out', true);
 }
 
 $product_id = POST('product_id', true);
 
 if (!Cart::AddToCart((int) $product_id)) {
     http_response_code(400);
-    ExitEroor('Error: Product not found');
+    ExitEroor('Error: Product not found', true);
 }
 
 http_response_code(302);

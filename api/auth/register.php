@@ -1,10 +1,9 @@
 <?php
 require_once '../../settings.php';
-require_once BASE_DIR . 'template/header.php';
 
 if(!Captcha::Verify(CAPTCHA_URL_SITEVERIFY,CAPTCHA_SECRET_KEY)){
     http_response_code(403);
-    ExitEroor('Error: Invalid captcha response');
+    ExitEroor('Error: Invalid captcha response', true);
 }
 
 $username  = POST('username', true);
@@ -15,17 +14,17 @@ $accept_check = POST('accept_check', true);
 
 if ($password !== $confirm_password) {
     http_response_code(400);
-    ExitEroor('Error: Password and confirm password do not match');
+    ExitEroor('Error: Password and confirm password do not match', true);
 }
 
 if ($accept_check !== "true") {
     http_response_code(400);
-    ExitEroor('Error: Check is not accept');
+    ExitEroor('Error: Check is not accept', true);
 }
 
 if(!Auth::Register($username,$email,$password,$accept_check,$err_message)){
     http_response_code(400);
-    ExitEroor('Error: ' . $err_message);
+    ExitEroor('Error: ' . $err_message, true);
 }
 
 http_response_code(302);

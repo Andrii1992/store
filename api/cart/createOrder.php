@@ -4,7 +4,7 @@ require_once BASE_DIR . 'lib/PayPal/autoload.php';
 
 if (!Me::IsLoggedIn()) {
     http_response_code(403);
-    ExitEroor('Error: User already logged out');
+    ExitEroor('Error: User already logged out', true);
 }
 
 use PayPal\Auth\OAuthTokenCredential;
@@ -59,7 +59,7 @@ foreach(Cart::GetProducts() as $product){
 
 if($total === 0.0){
     http_response_code(401);
-    ExitEroor('Error: Cart is empty');
+    ExitEroor('Error: Cart is empty', true);
 }
 
 // Set payment amount
@@ -71,7 +71,7 @@ $order_id = Order::Create(Me::GetUser()->GetData()['id'], $order);
 
 if($order_id < 1 ){
     http_response_code(500);
-    ExitEroor('Error: Failed to create order');
+    ExitEroor('Error: Failed to create order', true);
 }
 
 Cart::ClearCart();

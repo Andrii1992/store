@@ -3,7 +3,7 @@ require_once '../../settings.php';
 
 if (!Me::IsLoggedIn()) {
     http_response_code(403);
-    ExitEroor('Error: User already logged out');
+    ExitEroor('Error: User already logged out', true);
 }
 
 $product_id = POST('product_id', true);
