@@ -25,13 +25,18 @@ class Auth
         }
 
         $password_hash = password_hash($password, PASS_HASH_ALGO);
-        $db->insert('users', [
+        $result = $db->insert('users', [
             'username' => $username,
             'email' => $email,
             'password_hash' => $password_hash,
             'activated' => 1,
             'admin' => 0
         ]);
+
+        if($result === false){
+            $err_message = 'Login or email already exist';
+            return false;
+        }
 
         return true;
     }
