@@ -1,5 +1,6 @@
 <?php
 require_once '../../settings.php';
+require_once BASE_DIR . 'template/header.php';
 
 if(!Captcha::Verify(CAPTCHA_URL_SITEVERIFY,CAPTCHA_SECRET_KEY)){
     http_response_code(403);
