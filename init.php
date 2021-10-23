@@ -23,7 +23,7 @@ function POST(string $key, bool $require = false, bool $secure = true)
     if (!isset($_POST[$key])) {
         if ($require) {
             http_response_code(400);
-            ExitEroor("Error: POST parameter `$key` is required");
+            ExitEroor("Error: POST parameter `$key` is required", true);
         } else {
             return null;
         }
