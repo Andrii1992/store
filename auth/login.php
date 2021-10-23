@@ -24,7 +24,9 @@ require_once "../settings.php";
     </div>
     <div class="col-lg-7 my-1 col-12 mx-auto">
       <div class="form-group">
-        <button data-callback="onSubmit" data-sitekey="<?=CAPTCHA_SITE_KEY; ?>" class="btn btn-secondary d-block ml-auto g-recaptcha">submit</button>
+        <!-- delete --> 
+        <input type="submit" class="btn btn-secondary d-block ml-auto" name="submit" id="submit" value="submit">
+        <button data-callback="onSubmit" data-sitekey="<?=CAPTCHA_SITE_KEY; ?>" type="submit" class="btn btn-secondary d-block ml-auto g-recaptcha">submit</button>
       </div>
     </div>
   </form>

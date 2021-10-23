@@ -1,10 +1,10 @@
 <?php
 require_once '../../settings.php';
-
+/* <!-- delete --> 
 if(!Captcha::Verify(CAPTCHA_URL_SITEVERIFY,CAPTCHA_SECRET_KEY)){
     http_response_code(403);
     exit('Error: Invalid captcha response');
-}
+}*/
 
 $usernameOrEmail  = POST('usernameOrEmail', true);
 $password  = POST('password', true, false);

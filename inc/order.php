@@ -35,4 +35,12 @@ class Order
             'is_shipped' => $is_shipped ? 1 : 0
         ]);
     }
+
+    public static function GetOrders(int $user_id): array
+    {
+        $db = MysqliDb::getInstance();
+        $db->where('user_id', $user_id);
+        $db->orderBy('id', 'DESC');
+        return $db->get('orders');
+    }
 }

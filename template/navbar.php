@@ -20,6 +20,9 @@
                     <a href="<?php echo PREFIX_URL; ?>stor.php" class="nav-link">Stor</a>
                 </li>
                 <li class="nav-item">
+                    <a href="<?php echo PREFIX_URL; ?>user/orders.php" class="nav-link">Orders</a>
+                </li>
+                <li class="nav-item">
                     <a href="<?php echo PREFIX_URL; ?>user/settings.php" class="nav-link">Settings</a>
                 </li>
                 <li class="nav-item">
