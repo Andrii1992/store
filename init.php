@@ -60,7 +60,7 @@ function GET(string $key, bool $require = false, bool $secure = true)
 
 function ExitEroor(string $error)
 {
-    echo "<h2>$error</h2>";
+    echo "<h2 class='my-5 text-danger'>$error</h2>";
     require_once PREFIX_URL . 'template/footer.php';
     exit();
 }
